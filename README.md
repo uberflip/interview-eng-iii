@@ -16,7 +16,25 @@ Your task is to create a RESTful API for a time clock system.  All required endp
 
 *Timesheet*: A timesheet is a pair of clock in/out timestamps with the number of hours and gross pay calculated.  
 
-*Social Insurance Number (SIN)*: Use this document as a guide for implementing your own validation for SINs. [https://www.straightlineinternational.com/docs/vaildating_canadian_sin.pdf](https://www.straightlineinternational.com/docs/vaildating_canadian_sin.pdf)
+*Social Insurance Number (SIN)*: Use the following method to validate a SIN.
+
+>Let's use this fictitious SIN to demonstrate: `130 692 544`
+>
+>Always multiply the SIN Number by this number: `121 212 121`
+>
+>(Multiply each digit of the top number by each digit of the bottom number)
+>
+>`130 692 544`
+>
+>`121 212 121`
+>
+>`160 394 584`
+>
+>If you get a 2 digit product, add the digits together. Notice here that 6 * 2 = 12, add 1 and 2 together and get 3.
+>
+>Then add all of these digits together: 1 + 6 + 0 + 3 + 9 + 4 + 5 + 8 + 4 = 40
+>
+>If the SIN is valid this sum will be evenly divisible by 10. This is a 'valid' SIN.
 
 ## Requirements
 
@@ -29,16 +47,20 @@ Your task is to create a RESTful API for a time clock system.  All required endp
 - Retrieve a list of employees
 - Clock in an employee
 - Clock out an employee
-- Retrieve a timesheet
 - Retrieve a list of timesheets
 
 ### Constraints
 
 - Employees must have a unique, valid SIN
+- An employee must be clocked in to be able to be clocked out
+
+### Search Criteria
+
+The list employees endpoint should support searching by first or last name. The timesheet list endpoint should support searching by employee ID and date range.
 
 ## Deliverables
 
-Provide a Github repository with your code, database schema and/or migrations, tests, and API documentation.  Include any setup steps necessary for your interviewer to be able to run your project.  Be prepared to review and explain any design decisions that you made.
+Provide a Github repository with your code, data schema, unit and feature tests, and API documentation.  Include a README with any setup steps necessary for your interviewer to be able to run your project.  Be prepared to screen share a working copy of your API with your interviewer and review and explain the design decisions that you made.  
 
 ## Bonus Task
 
