@@ -14,15 +14,13 @@ Your task is to create a RESTful API for a time clock system.  All required endp
 - Hourly wage rate
 - Social Insurance Number
 
-*Timesheet*: A timesheet is a pair of clock in/out timestamps with the number of hours and gross pay calculated.  
+*Timesheet*: A timesheet is a pair of clock in/out timestamps with the number of hours and gross pay calculated.
 
 *Social Insurance Number (SIN)*: Use the following method to validate a SIN.
 
 >Let's use this fictitious SIN to demonstrate: `130 692 544`
 >
->Always multiply the SIN Number by this number: `121 212 121`
->
->(Multiply each digit of the top number by each digit of the bottom number)
+>Multiply each digit of the SIN by the corresponding digit of the number `121 212 121`.  If you get a two-digit product, add those digits together.
 >
 >`130 692 544`
 >
@@ -30,7 +28,7 @@ Your task is to create a RESTful API for a time clock system.  All required endp
 >
 >`160 394 584`
 >
->If you get a 2 digit product, add the digits together. Notice here that 6 * 2 = 12, add 1 and 2 together and get 3.
+>Notice here that 6 * 2 = 12; add 1 and 2 together to get 3.
 >
 >Then add all of these digits together: 1 + 6 + 0 + 3 + 9 + 4 + 5 + 8 + 4 = 40
 >
@@ -51,16 +49,16 @@ Your task is to create a RESTful API for a time clock system.  All required endp
 
 ### Constraints
 
-- Employees must have a unique, valid SIN
+- Each employee must have a unique, valid SIN
 - An employee must be clocked in to be able to be clocked out
 
 ### Search Criteria
 
-The list employees endpoint should support searching by first or last name. The timesheet list endpoint should support searching by employee ID and date range.
+The list employees endpoint should support searching by first or last name. The list timesheets endpoint should support searching by employee ID and date range.
 
 ## Deliverables
 
-Provide a Github repository with your code, data schema, unit and feature tests, and API documentation.  Include a README with any setup steps necessary for your interviewer to be able to run your project.  Be prepared to screen share a working copy of your API with your interviewer and review and explain the design decisions that you made.  
+Provide a Github repository with your code, data schema, unit and feature tests, and API documentation.  Include a README with any setup steps necessary for your interviewer to be able to run your project.  Be prepared to screen share a working copy of your API with your interviewer and review and explain the design decisions that you made.
 
 ## Bonus Task
 
